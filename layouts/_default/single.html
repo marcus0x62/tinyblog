@@ -1,0 +1,27 @@
+{{ partial "header" . }}
+
+{{ if .Params.highlight }}
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"/>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+  {{ range .Params.highlightlang }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/{{ . }}.min.js"></script>
+  {{ end }}
+    <script>hljs.initHighlightingOnLoad();</script>
+{{ end }}
+    
+<main>
+
+    <div>
+        <h2>{{ .Title }}</h2>
+        <h5>{{ .Description }}</h5>
+        {{ partial "tags" . }}
+    </div>
+
+    <div align="start" class="post-body">{{ .Content }}</div>
+
+</main>
+
+{{ partial "footer" . }}

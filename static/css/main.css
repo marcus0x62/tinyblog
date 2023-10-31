@@ -1,0 +1,100 @@
+html, body {
+    height: 100%;
+}
+
+html body {
+    background-color: var(--background-color);
+}
+
+body {
+    padding-top: 55px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+main {
+    margin: auto;
+    padding: 25px;
+    flex: 1 0 auto;
+    max-width: 1000px;
+}
+
+img {
+    max-width: 100%;
+}
+
+a:link, a:visited {
+    color: var(--accent);
+}
+
+a.icon:hover {
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent) !important;
+}
+
+.index-body {
+    transform: translateY(5vh);
+}
+
+.post-body {
+    transform: translateY(2vh);
+}
+
+.post-image {
+    text-align: center;
+}
+
+.tag {
+    background-color: var(--accent);
+}
+
+.paginator {
+    padding: 15px 0;
+}
+
+.list-item {
+    padding-bottom: 25px;
+    text-align: left;
+}
+
+.navbar-icon {
+    font-size: 125%;
+    display: inline-block !important;
+}
+
+.navbar.navbar-default {
+    background-color: var(--navbar-background-color);
+    border-top: var(--border-width) solid var(--accent);
+}
+
+.githubicon {
+    content: url('/images/github-mark.svg');
+    height: 16px;
+    width: 16px;
+}
+
+.envelopeicon {
+    content: url('/images/envelope.svg');
+    height: 16px;
+    width: 16px;
+}
+
+.copyright {
+    margin: 5px 0;
+}
+
+.error {
+    display: block;
+    line-height: 1;
+    font-family: monospace;
+    white-space: pre;
+    text-align: left;
+}
+
+footer {
+    border-bottom: var(--border-width) solid var(--accent);
+}

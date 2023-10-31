@@ -1,0 +1,19 @@
+{{ partial "header" . }}
+
+<main>
+<div class="index-body">
+  {{ with .Content }} {{ . }} {{ end }}
+
+  {{ $paginator := .Paginate (where (where .Site.Pages "Type" "posts")
+                                    "Title" "!=" "Posts") (.Site.Params.itemsperpage | default (int 5))
+  }}
+
+  {{ range $paginator.Pages }}
+    {{ partial "list-item" . }}
+  {{ end }}
+
+  {{ partial "paginator" . }}
+</div>
+</main>
+
+{{ partial "footer" . }}

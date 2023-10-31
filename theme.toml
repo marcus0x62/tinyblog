@@ -1,0 +1,12 @@
+name = "tinyblog"
+license = "MIT"
+licenselink = "https://marcusb.org/hacks/tinyblog/LICENSE.txt"
+description = "Hyper minimal blog theme for Hugo"
+homepage = "https://marcusb.org/hacks/tinyblog.html"
+tags = ["blog", "minimal"]
+features = ["responsive"]
+min_version = "0.119.0"
+
+[author]
+  name = "Marcus Butler"
+  homepage = "https://marcusb.org"

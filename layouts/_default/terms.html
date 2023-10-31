@@ -1,0 +1,11 @@
+{{ partial "header" . }}
+
+<main>
+    {{ range (.Paginator (.Site.Params.itemsperpage | default (int 5)) ).Pages }}
+      {{ partial "list-item" . }}
+    {{ end }}
+
+    {{ partial "paginator" . }}
+</main>
+
+{{ partial "footer" . }}
