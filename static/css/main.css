@@ -2,22 +2,28 @@ html, body {
     height: 100%;
 }
 
-html body {
-    background-color: var(--background-color);
-}
-
 body {
-    padding-top: 55px;
+    margin: 0px;
     display: flex;
     flex-direction: column;
-    text-align: center;
+    text-align: left;
+    font-family: sans-serif, Helvetica, Arial;
+    font-size: 14px;
+    color: black;
+    background-color: var(--background-color);
 }
 
 main {
     margin: auto;
-    padding: 25px;
+    padding: 50px;
     flex: 1 0 auto;
-    max-width: 1000px;
+}
+
+header {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: space-between;
+    width: 100%;
 }
 
 img {
@@ -26,6 +32,7 @@ img {
 
 a:link, a:visited {
     color: var(--accent);
+    text-decoration: none;
 }
 
 a.icon:hover {
@@ -41,7 +48,14 @@ a:hover {
 }
 
 .post-body {
-    transform: translateY(2vh);
+    text-align: left;
+    transform: translateY(5vh);
+}
+
+.post-body table, td, th {
+    border-collapse: separate;
+    border-spacing: 5px;
+    padding: 5px;
 }
 
 .post-image {
@@ -49,6 +63,9 @@ a:hover {
 }
 
 .tag {
+    padding: 2px;
+    border-radius: 5px;
+    color: white;
     background-color: var(--accent);
 }
 
@@ -61,14 +78,52 @@ a:hover {
     text-align: left;
 }
 
-.navbar-icon {
-    font-size: 125%;
-    display: inline-block !important;
+pre {
+    padding: 5px;
+    box-sizing: border-box;
+    background-color: rgb(245,245,245);
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: break-all;
+    border-color: rgb(204,204,204);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    color: rgb(51,51,51)
 }
 
-.navbar.navbar-default {
+code {
+    background-color: rgb(245,245,245);
+    word-break: break-all;
+    overflow-wrap: break-all;
+    color: rgb(51,51,51);
+}
+
+.navbar {
     background-color: var(--navbar-background-color);
-    border-top: var(--border-width) solid var(--accent);
+    border-top: var(--border-top) solid var(--accent);
+    border-bottom: var(--border-bottom) solid lightgrey;
+    padding-top: 0px;
+    width: 100%;
+    display: flex;
+    top: 0;
+    position: fixed;
+    overflow: auto;
+    height: auto;
+    z-index: 9999999999;
+}
+
+.nav-text-element {
+    flex:1 1 0px;
+    padding-top: 7px;
+    padding-bottom: 5px;
+    padding-left: 50px;
+}
+
+.nav-icon-element {
+    padding-top: 7px;
+    padding-bottom: 5px;
+    padding-right: 50px;
 }
 
 .githubicon {
@@ -85,6 +140,8 @@ a:hover {
 
 .copyright {
     margin: 5px 0;
+    text-align: center;
+    color: var(--accent);
 }
 
 .error {
@@ -93,6 +150,7 @@ a:hover {
     font-family: monospace;
     white-space: pre;
     text-align: left;
+    margin-top: 50px;
 }
 
 footer {

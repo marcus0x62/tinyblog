@@ -24,4 +24,9 @@
 
 </main>
 
+{{ if .Params.comments }}
+  <script src="/js/tinycomments.js" onLoad="get_comments();"></script>
+  {{ partial "comments" . }}
+{{ end }}
+
 {{ partial "footer" . }}
