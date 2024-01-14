@@ -1,0 +1,41 @@
+{{ with .Page.Scratch.Get "gallery-counter" }}
+{{ else }}
+  {{ .Page.Scratch.Set "gallery-counter" "1" }}
+{{ end}}
+<div id="gallery-{{ .Page.Scratch.Get "gallery-counter" }}" class="gallery">
+  {{ .Scratch.Set "i" 1 }}
+  {{ $i := 1 }}
+  {{ range .Params }}
+    {{ $arg := split . ":" }}
+    {{ $file := index $arg 0 }}
+    {{ $alt := index $arg 1 }}
+
+<picture id="gallery-picture-{{ $i }}"
+{{ if eq $i 1 }}
+  class="gallery-picture-primary">
+{{ else }}
+  class="gallery-picture-thumbnail">
+{{ end }}
+  <source srcset="{{ $i }}.avif" type="image/avif" />
+  <source srcset="{{ $i }}.webp" type="image/webp" />
+  <img
+    id="gallery-image-{{ $i }}"
+    src="{{ $i }}.jpg"
+    {{ if eq $i 1 }}
+      class="gallery-image-primary"
+    {{ else }}
+      class="gallery-image-thumbnail"
+    {{ end }}
+    alt="Image {{ $i }} Alt Text"
+    loading="lazy"
+    {{ if eq $i 1 }}
+      onClick="zoom('{{ $i }}');"
+    {{ else }}
+      onClick="replace('{{ $i }}');"
+    {{ end }}
+  />
+</picture>
+  {{ $i = add $i 1 }}
+{{ end }}
+</div>
+{{ .Page.Scratch.Add "gallery-counter" "1" }}

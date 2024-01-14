@@ -9,6 +9,7 @@
         {{ with .OutputFormats.Get "RSS" }}
             <link href="{{ .RelPermalink }}" rel="alternate" type="{{ .MediaType.Type }}" title="{{ $.Site.Title }}" />
         {{ end }}
+        <link rel="icon" href="data:," />
     </head>
 
     <body>
