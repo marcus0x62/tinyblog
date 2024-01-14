@@ -1,7 +1,7 @@
 <style>
 :root {
-    --accent: grey;
-    --border-top: 5px;
+    --accent-color: {{ with .Site.Params.accentColor }} {{ . }} {{ else }} grey {{ end }};
+    --border-top: 2px;
     --border-bottom: 1px;
     --background-color: {{ .Site.Params.backgroundColor }};
     --navbar-background-color: {{ .Site.Params.navbarBackgroundColor }};
@@ -10,6 +10,14 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
+{{ if .Params.highlight }}
+  <link rel="stylesheet" href="/css/highlight.css">
+{{ end }}
+
 {{ if .Params.gallery }}
   <script src="/js/gallery.js"></script>
+{{ end }}
+
+{{ if .Params.comments }}
+  <script src="/js/tinycomments.js" onLoad="get_comments();"></script>
 {{ end }}

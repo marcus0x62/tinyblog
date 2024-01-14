@@ -1,22 +1,29 @@
 {{ partial "header" . }}
-
-{{ if .Params.highlight }}
-  <link rel="stylesheet" href="/css/highlight.css">
-{{ end }}
-
 <main>
-    <div>
-        <h2>{{ .Title }}</h2>
-        <h5>{{ .Description }}</h5>
-        {{ partial "tags" . }}
+  <div class="post-open">
+    <div class="post-open-title">
+      <h2>{{ .Title }}</h2>
+      {{ if .Date }}
+        <p>Posted: {{ .Date | time.Format ":date_medium" }}
+        {{ if ne .Lastmod .Date }}
+          <i>Updated: {{ .Lastmod | time.Format ":date_medium" }}</i>
+        {{ end }}</p>
+      {{ end }}
     </div>
-
-    <div align="start" class="post-body">{{ .Content }}</div>
+    <div class="post-open-tags"> 
+      {{ partial "tags" . }}
+    </div>
+    <div class="post-open-quote">
+      {{ if .Params.quote }}
+        {{ .Params.quote }}
+      {{ end }}
+    </div>
+  </div>
+  <div class="post-body">{{ .Content }}</div>
 </main>
-
 {{ if .Params.comments }}
-  <script src="/js/tinycomments.js" onLoad="get_comments();"></script>
-  {{ partial "comments" . }}
+  <comments>
+    {{ partial "comments" . }}
+  </comments>
 {{ end }}
-
 {{ partial "footer" . }}

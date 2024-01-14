@@ -30,17 +30,26 @@ img {
     max-width: 100%;
 }
 
-a:link, a:visited {
-    color: var(--accent);
-    text-decoration: none;
+a:link {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+a:visited {
+    color: var(--accent-color);
+    text-decoration: underline;
+    opacity: 33%;
 }
 
 a.icon:hover {
     text-decoration: none;
+    font-weight: bold;
 }
 
 a:hover {
-    color: var(--accent) !important;
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    font-style: italic;
 }
 
 .index-body {
@@ -58,6 +67,43 @@ a:hover {
     padding: 5px;
 }
 
+.post-open {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-open-quote {
+    padding-top: 15px;
+    font-style: italic;
+}
+
+@media screen and (min-width: 650px) {
+    .post-open {
+        background-color: #ff00000;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+    }
+    .post-open-title {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+    .post-open-tags {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+    .post-open-quote {
+        padding-top: 50px;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+}
+
 .post-image {
     text-align: center;
 }
@@ -66,7 +112,7 @@ a:hover {
     padding: 2px;
     border-radius: 5px;
     color: white;
-    background-color: var(--accent);
+    background-color: var(--accent-color);
 }
 
 .paginator {
@@ -101,8 +147,8 @@ code {
 
 .navbar {
     background-color: var(--navbar-background-color);
-    border-top: var(--border-top) solid var(--accent);
-    border-bottom: var(--border-bottom) solid lightgrey;
+    border-top: var(--border-top) solid var(--accent-color);
+    border-bottom: var(--border-bottom) solid var(--accent-color);
     padding-top: 0px;
     width: 100%;
     display: flex;
@@ -110,7 +156,7 @@ code {
     position: fixed;
     overflow: auto;
     height: auto;
-    z-index: 9999999999;
+    z-index: 10;
 }
 
 .nav-text-element {
@@ -151,7 +197,7 @@ code {
 .gallery-image-thumbnail {
     max-width: 32px;
 }
-      
+
 .gallery-zoom {
     vertical-align: top;
     background-color: white;
@@ -195,7 +241,7 @@ code {
 .copyright {
     margin: 5px 0;
     text-align: center;
-    color: var(--accent);
+    color: var(--accent-color);
 }
 
 .error {
@@ -208,5 +254,5 @@ code {
 }
 
 footer {
-    border-bottom: var(--border-width) solid var(--accent);
+    border-bottom: var(--border-width) solid var(--accent-color);
 }
