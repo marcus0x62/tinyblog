@@ -1,0 +1,55 @@
+{{- if not (.Page.Scratch.Get "gallery-js") }}
+  {{- .Page.Scratch.Set "gallery-js" 1 }}
+  <script src="/js/gallery.js"></script>
+{{- end }}
+{{- if not (.Page.Scratch.Get "gallery-image-counter") }}
+  {{- .Page.Scratch.Set "gallery-image-counter" 1 }}
+{{- end }}
+{{- $id := printf "gallery-image-%d" (.Page.Scratch.Get "gallery-image-counter") }}
+{{- .Page.Scratch.Add "gallery-image-counter" 1 }}
+{{- $formats := slice "avif" "webp" "png" "jpg" "jpeg" "tif" "tiff" }}
+{{- $alt := .Text }}
+{{- $url := urls.Parse .Destination }}
+{{- if not $url.Scheme }}
+  {{- $file := "" }}
+  {{- $file_path := "" }}
+  {{- $file_name := "" }}
+  {{- $file_ext := "" }}
+  {{- $style := slice }}
+  {{- if not (hasPrefix $url.Path "/") }}
+    {{- $file = (path.Join (path.Dir .Page.File.Path) $url.Path) }}
+    {{- $file_path = path.Dir .Page.File.Path }}
+    {{- $file_name = index (strings.Split $url.Path ".") 0 }}
+    {{- $file_ext = index (strings.Split $url.Path ".") 1 }}
+  {{- else }}
+    {{- $file = $url }}
+  {{- end }}
+  {{- $image_variants := 1 }}
+  {{- $variants := slice }}
+  {{- range $formats }}
+    {{- if not (eq . $file_ext) }}
+      {{- $test_file := printf "%s/%s.%s" $file_path $file_name . }}
+      {{- $variant_file := printf "%s.%s" $file_name . }}
+      {{- if fileExists $test_file }}
+        {{- $image_variants = add $image_variants 1 }}
+        {{- $variants = $variants | append $variant_file }}
+      {{- end }}
+    {{- end  }}
+  {{- end }}
+  {{- if $url.Query.Has "float" }}
+    {{- $float_style := printf "float: %s;" ($url.Query.Get "float") }}      
+    {{- $style = $style | append $float_style }}
+  {{- end }}
+  <div class="image" style="{{range $style}}{{.|safeCSS}}{{end}}">
+    <picture>
+      {{- if gt $image_variants 1 }}
+        {{- range first (sub (len $variants) 0) $variants }}
+          <source srcset="{{ . }}" />
+        {{- end }}
+      {{- end }}
+      <img class="gallery-image-primary" src="{{ .Destination }}" id="{{ $id }}" style="{{ range $style }}{{ . | safeCSS }}{{ end }}"
+           onClick="zoom('{{ $id }}');"/>
+    </picture>
+    <i>Caption: {{ .Text }}</i>
+  </div>
+{{- end }}

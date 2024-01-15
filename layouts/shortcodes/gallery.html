@@ -1,3 +1,8 @@
+{{ if not (.Page.Scratch.Get "gallery-js") }}
+  {{ .Page.Scratch.Set "gallery-js" 1 }}
+  <script src="/js/gallery.js"></script>
+{{ end }}
+
 {{ with .Page.Scratch.Get "gallery-counter" }}
 {{ else }}
   {{ .Page.Scratch.Set "gallery-counter" "1" }}

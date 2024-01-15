@@ -1,9 +1,10 @@
 function zoom(id) {
-    image = document.getElementById("gallery-image-" + id);
+    image = document.getElementById(id);
     console.log("Image source: " + image.currentSrc);
 
     div = document.createElement("div");
     div.id = "zoom-div";
+    div.setAttribute('onclick', 'hide();');
     div.classList.add("gallery-zoom");
 
     p = document.createElement("a");
@@ -12,7 +13,7 @@ function zoom(id) {
     p.setAttribute('onclick', 'hide();');
 
     br = document.createElement("br");
-          
+
     newimage = document.createElement("img");
     newimage.src = image.currentSrc;
     newimage.setAttribute('onclick', 'hide();');
@@ -36,12 +37,14 @@ function zoom(id) {
         div.append(p);
         p.append(fullres);
     }
-          
+
+    rect = div.getBoundingClientRect();
     offsetx = ((window.visualViewport.width - div.offsetWidth) / 2) + "px";
-    offsety = ((window.visualViewport.height - div.offsetHeight) / 2) + "px";
+    offsety = ((Math.abs(rect.y) + (window.visualViewport.height - div.offsetHeight) / 2)) + "px";
     div.style.top = offsety;
     div.style.left = offsetx;
 
+    console.log(`boundrect offset: ${boundoffsety}`);
     console.log(`calculated offsets: ${offsetx} x ${offsety}`);
 }
       
