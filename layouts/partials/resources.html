@@ -5,6 +5,7 @@
     --border-bottom: 1px;
     --background-color: {{ .Site.Params.backgroundColor }};
     --navbar-background-color: {{ .Site.Params.navbarBackgroundColor }};
+    --navbar-icon-size: {{ with .Site.Params.navbarIconSize }} {{ . }} {{ else }} 16px {{ end }};
 }
 </style>
 
@@ -12,8 +13,4 @@
 
 {{ if .Params.highlight }}
   <link rel="stylesheet" href="/css/highlight.css">
-{{ end }}
-
-{{ if .Params.comments }}
-  <script src="/js/tinycomments.js" onLoad="get_comments();"></script>
 {{ end }}

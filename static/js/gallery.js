@@ -12,21 +12,24 @@ function zoom(id) {
     p.setAttribute('href', '#');
     p.setAttribute('onclick', 'hide();');
 
+    document.onkeydown = function(evt) {
+        evt = evt || window.event;
+        if (evt.key === "Escape" || evt.key === "Esc") {
+            document.body.removeChild(document.getElementById("zoom-div"));
+            document.onkeydown = null;
+        }
+    };
+
+    document.body.style.overflow = "hidden";
     br = document.createElement("br");
 
     newimage = document.createElement("img");
     newimage.src = image.currentSrc;
-    newimage.setAttribute('onclick', 'hide();');
 
     div.append(p);
     div.append(br);
     div.append(newimage);
     document.body.append(div);
-
-    console.log("Div width: " + div.offsetWidth);
-    console.log("Div height: " + div.offsetHeight);
-    console.log("Body width: " + document.body.offsetWidth);
-    console.log("Body height: " + document.body.offsetHeight);
 
     if ((image.naturalWidth > div.offsetWidth) || (image.naturalHeight > div.offsetHeight)) {
         p = document.createElement("p");
@@ -34,40 +37,50 @@ function zoom(id) {
         fullres.textContent = "Click to open full size image";
         fullres.setAttribute('href', image.currentSrc);
         fullres.setAttribute('alignment', 'center');
+        p2 = document.createElement("p");
+        p2.textContent = "Click anywhere else to close.";
         div.append(p);
+        div.append(p2);
         p.append(fullres);
+    } else {
+        p = document.createElement("p");
+        p.textContent = "Click anywhere to close.";
+        div.append(p);
     }
 
-    rect = div.getBoundingClientRect();
     offsetx = ((window.visualViewport.width - div.offsetWidth) / 2) + "px";
-    offsety = ((Math.abs(rect.y) + (window.visualViewport.height - div.offsetHeight) / 2)) + "px";
+    offsety = ((Math.abs(div.getBoundingClientRect().y) + (window.visualViewport.height - div.offsetHeight) / 2)) + "px";
     div.style.top = offsety;
     div.style.left = offsetx;
-
-    console.log(`boundrect offset: ${boundoffsety}`);
-    console.log(`calculated offsets: ${offsetx} x ${offsety}`);
 }
-      
+
 function hide() {
     document.body.removeChild(document.getElementById("zoom-div"));
+    document.body.style.overflow = null;
 }
 
-function replace(imageid) {
+function hide_key(e) {
+    if (e.key == 'Escape') {
+        document.body.removeChild(document.getElementById("zoom-div"));
+        document.removeAttribute('keyup.esc');
+    }
+}
+
+function replace(galleryid, imageid) {
     new_primary = document.getElementById("gallery-picture-" + imageid);
 
-    gallery = document.getElementById("gallery-1");
+    gallery = document.getElementById("gallery-" + galleryid);
 
     for (child of gallery.children) {
         if (child == new_primary) {
             child.classList.replace("gallery-picture-thumbnail", "gallery-picture-primary");
             child.querySelector('img').classList.replace('gallery-image-thumbnail', 'gallery-image-primary');
-            child.querySelector('img').setAttribute('onclick', "zoom(" + imageid + ");");
+            child.querySelector('img').setAttribute('onclick', "zoom('gallery-image-" + imageid + "');");
         } else if (child.classList.contains("gallery-picture-primary")) {
             childid = child.getAttribute('id').replace("gallery-picture-", "");
-            console.log(`Got id ${childid}`);
             child.classList.replace("gallery-picture-primary", "gallery-picture-thumbnail");
             child.querySelector('img').classList.replace('gallery-image-primary', 'gallery-image-thumbnail');
-            child.querySelector('img').setAttribute('onclick', `replace(${childid});`);
+            child.querySelector('img').setAttribute('onclick', `replace(${galleryid}, ${childid});`);
         }
     }
 }

@@ -21,9 +21,9 @@
   </div>
   <div class="post-body">{{ .Content }}</div>
 </main>
-{{ if .Params.comments }}
+{{- if .Params.comments }}
   <comments>
     {{ partial "comments" . }}
   </comments>
-{{ end }}
+{{- end }}
 {{ partial "footer" . }}

@@ -7,6 +7,7 @@ body {
     display: flex;
     flex-direction: column;
     text-align: left;
+    line-height: 1.4;
     font-family: sans-serif, Helvetica, Arial;
     font-size: 14px;
     color: black;
@@ -172,12 +173,15 @@ code {
     padding-right: 50px;
 }
 
+img.nav-icon {
+    width: var(--navbar-icon-size);
+    height: var(--navbar-icon-size);
+}
+
 .gallery {
-    float: inline-start;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     margin: 10px;
-    max-width: 33%;
 }
 
 .gallery-picture-primary {
@@ -195,13 +199,13 @@ code {
 }
 
 .gallery-image-thumbnail {
-    max-width: 32px;
+
 }
 
 .gallery-zoom {
     display: flex;
     flex-direction: column;
-    vertical-align: top;
+    color: grey;
     background-color: black;
     position: absolute;
     z-index: 99999999;
@@ -229,24 +233,11 @@ code {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    max-width: 33%;
 }
 
 .image i {
     padding-top: 5px;
     text-align: center;
-}
-
-.githubicon {
-    content: url('/images/github-mark.svg');
-    height: 16px;
-    width: 16px;
-}
-
-.envelopeicon {
-    content: url('/images/envelope.svg');
-    height: 16px;
-    width: 16px;
 }
 
 .copyright {

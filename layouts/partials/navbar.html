@@ -10,7 +10,9 @@
     <div class="nav-icon-element">
       {{ if .Site.Menus.icon }}
         {{ range sort .Site.Menus.icon }}
-          <a href="{{ .URL }}"><i class="{{ .Name }}"></i></a>&nbsp;
+          {{ if .Params.icon }}
+            <a href="{{ .URL }}"><img src="{{ .Params.icon }}" class="nav-icon"/></a>&nbsp;
+          {{ end }}
         {{ end }}
       {{ end }}
     </div>    
