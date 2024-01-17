@@ -1,6 +1,6 @@
 name = "tinyblog"
 license = "MIT"
-licenselink = "https://marcusb.org/hacks/tinyblog/LICENSE.txt"
+licenselink = "https://marcusb.org/hacks/MIT-LICENSE.txt"
 description = "Hyper minimal blog theme for Hugo"
 homepage = "https://marcusb.org/hacks/tinyblog.html"
 tags = ["blog", "minimal"]

@@ -1,10 +1,11 @@
 <style>
 :root {
     --accent-color: {{ with .Site.Params.accentColor }} {{ . }} {{ else }} grey {{ end }};
-    --border-top: 2px;
-    --border-bottom: 1px;
-    --background-color: {{ .Site.Params.backgroundColor }};
-    --navbar-background-color: {{ .Site.Params.navbarBackgroundColor }};
+    --text-color: {{ with .Site.Params.textColor }} {{ . }} {{ else }} black {{ end }};
+    --background-color: {{ with .Site.Params.backgroundColor }} {{ . }} {{ else }} #fefbea {{ end }};
+    --navbar-border-top: {{ with .Site.Params.navbarBorderTop }} {{ . }} {{ else }} 2px {{ end }};
+    --navbar-border-bottom: {{ with .Site.Params.navbarBorderBottom }} {{ . }} {{ else }} 1px {{ end }};
+    --navbar-background-color: {{ with .Site.Params.navbarBackgroundColor }} {{ . }} {{ else }} #ffffea {{ end }};
     --navbar-icon-size: {{ with .Site.Params.navbarIconSize }} {{ . }} {{ else }} 16px {{ end }};
 }
 </style>
