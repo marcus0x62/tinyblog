@@ -2,11 +2,11 @@
           <p class="copyright text-muted">
             Made with ♥️ with <a href="https://gohugo.io">Hugo</a> and <a href="https://marcusb.org/hacks/tinyblog.html">Tinyblog</a><br/>
             Copyright &copy; {{ .Site.Params.author }}<br/>
-            {{ if .Site.Params.license_text }}
-              {{ if .Site.Params.license_link }}
-                <a href="{{ .Site.Params.license_link }}">{{ .Site.Params.license_text }}</a>
+            {{ if .Site.Params.licenseText }}
+              {{ if .Site.Params.licenseLink }}
+                <a href="{{ .Site.Params.licenseLink }}">{{ .Site.Params.licenseText }}</a>
               {{ else }}
-                {{ .Site.Params.license_text }}
+                {{ .Site.Params.licenseText }}
               {{ end }}
             {{ end }}
           </p>

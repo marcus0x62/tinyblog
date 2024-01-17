@@ -5,5 +5,4 @@ tags: []
 draft: true
 comments: true
 highlight: false
-gallery: false
 ---

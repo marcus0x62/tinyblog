@@ -1,7 +1,7 @@
 {{ partial "header" . }}
 
 <main>
-    {{ range (.Paginator (.Site.Params.itemsperpage | default (int 5)) ).Pages }}
+    {{ range (.Paginator (.Site.Params.itemsPerPage | default (int 5)) ).Pages }}
       {{ partial "list-item" . }}
     {{ end }}
 
