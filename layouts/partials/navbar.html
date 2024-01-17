@@ -11,7 +11,7 @@
       {{ if .Site.Menus.icon }}
         {{ range sort .Site.Menus.icon }}
           {{ if .Params.icon }}
-            <a href="{{ .URL }}"><img src="{{ .Params.icon }}" class="nav-icon"/></a>&nbsp;
+            <a href="{{ .URL }}"><img alt="{{ .Name }}" src="{{ .Params.icon }}" class="nav-icon"/></a>&nbsp;
           {{ end }}
         {{ end }}
       {{ end }}

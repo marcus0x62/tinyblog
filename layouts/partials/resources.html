@@ -1,6 +1,6 @@
 <style>
 :root {
-    --accent-color: {{ with .Site.Params.accentColor }} {{ . }} {{ else }} grey {{ end }};
+    --accent-color: {{ with .Site.Params.accentColor }} {{ . }} {{ else }} #565656 {{ end }};
     --text-color: {{ with .Site.Params.textColor }} {{ . }} {{ else }} black {{ end }};
     --background-color: {{ with .Site.Params.backgroundColor }} {{ . }} {{ else }} #fefbea {{ end }};
     --navbar-border-top: {{ with .Site.Params.navbarBorderTop }} {{ . }} {{ else }} 2px {{ end }};

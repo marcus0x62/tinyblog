@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ .Title }}</title>
+        {{ with .Description }}<meta name="description" content="{{ . }}">{{ end }}
         {{ partial "resources" . }}
         {{ hugo.Generator }}
         {{ with .OutputFormats.Get "RSS" }}
