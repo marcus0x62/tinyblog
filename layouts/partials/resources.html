@@ -9,9 +9,9 @@
     --navbar-icon-size: {{ with .Site.Params.navbarIconSize }} {{ . }} {{ else }} 16px {{ end }};
 }
 </style>
-
-<link rel="stylesheet" href="/css/main.css">
-
-{{ if .Params.highlight }}
-  <link rel="stylesheet" href="/css/highlight.css">
-{{ end }}
+{{- $main_css := resources.Get "css/main.css" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+{{- $highlight_css := resources.Get "css/highlight.css" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $main_css.RelPermalink }}">
+{{- if .Params.highlight }}
+<link rel="stylesheet" href="{{ $highlight_css.RelPermalink }}">
+{{- end }}
