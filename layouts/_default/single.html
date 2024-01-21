@@ -1,22 +1,22 @@
-{{ partial "header" . }}
+{{- partial "header" . }}
 <main>
   <div class="post-open">
     <div class="post-open-title">
       <h2>{{ .Title }}</h2>
-      {{ if .Date }}
+      {{- if .Date }}
         <p>Posted: {{ .Date | time.Format ":date_medium" }}
-        {{ if ne .Lastmod .Date }}
+        {{- if ne .Lastmod .Date }}
           <i>Updated: {{ .Lastmod | time.Format ":date_medium" }}</i>
-        {{ end }}</p>
-      {{ end }}
+        {{- end }}</p>
+      {{- end }}
     </div>
     <div class="post-open-tags"> 
-      {{ partial "tags" . }}
+      {{- partial "tags" . }}
     </div>
     <div class="post-open-quote">
-      {{ if .Params.quote }}
-        {{ .Params.quote }}
-      {{ end }}
+      {{- if .Params.quote }}
+        {{- .Params.quote }}
+      {{- end }}
     </div>
   </div>
   <div class="post-body">{{ .Content }}</div>
@@ -26,4 +26,4 @@
     {{ partial "comments" . }}
   </comments>
 {{- end }}
-{{ partial "footer" . }}
+{{- partial "footer" . }}

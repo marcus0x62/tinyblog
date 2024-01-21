@@ -153,10 +153,18 @@ pre {
     padding-left: 50px;
 }
 
+.nav-text-element a {
+   padding-right: 5px;
+}
+    
 .nav-icon-element {
     padding-top: 7px;
     padding-bottom: 5px;
     padding-right: 50px;
+}
+
+.nav-icon-element a {
+    padding-left: 5px;
 }
 
 img.nav-icon {

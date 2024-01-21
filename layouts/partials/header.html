@@ -4,14 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ .Title }}</title>
-        {{ with .Description }}<meta name="description" content="{{ . }}">{{ end }}
-        {{ partial "resources" . }}
-        {{ hugo.Generator }}
-        {{ with .OutputFormats.Get "RSS" }}
+        {{- with .Description }}<meta name="description" content="{{ . }}">{{- end }}
+        {{- partial "resources" . }}
+        {{- hugo.Generator }}
+        {{- with .OutputFormats.Get "RSS" }}
             <link href="{{ .RelPermalink }}" rel="alternate" type="{{ .MediaType.Type }}" title="{{ $.Site.Title }}" />
-        {{ end }}
+        {{- end }}
         <link rel="icon" href="data:," />
     </head>
-
     <body>
-      {{ partial "navbar" . }}
+      {{- partial "navbar" . }}

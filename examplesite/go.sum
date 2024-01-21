@@ -1,0 +1,6 @@
+github.com/marcus0x62/tinyblog v0.0.0-20240117233832-0f1fc519214b h1:ykazQv/30ZUjRBUILzm4mkdtZUo1pCugZpnuuaOCSrU=
+github.com/marcus0x62/tinyblog v0.0.0-20240117233832-0f1fc519214b/go.mod h1:TEugpFzmE6tWa0XyLglSzdp3X+DgD+0m9/yatctzjVU=
+github.com/marcus0x62/tinycomments v0.0.0-20240117164733-0a3dec7308ef h1:pDl59j8z1kS4yr6qYEuXZQnbQcz3oAYR/Xok4xrrwRM=
+github.com/marcus0x62/tinycomments v0.0.0-20240117164733-0a3dec7308ef/go.mod h1:2PeKQsSHskrgE23jg9Bkmip3CSUMPMCXaN6cVJ9F4Fg=
+github.com/marcus0x62/tinyimages v0.0.0-20240121140049-1d8f9c0d16f4 h1:lv/S3pfceGSae2SrtwVxYDON3BBpo4rNzjHvcyELdcI=
+github.com/marcus0x62/tinyimages v0.0.0-20240121140049-1d8f9c0d16f4/go.mod h1:0gd7xX97akGUEvb+9tSVKet8Eo6xpl/gL9s3dkw16Rg=

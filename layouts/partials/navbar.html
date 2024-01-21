@@ -1,20 +1,20 @@
 <header>
   <nav class="navbar">
     <div class="nav-text-element">
-      {{ if .Site.Menus.main }}
-        {{ range sort .Site.Menus.main }}
-          <a href="{{ .URL }}">{{ .Name }}</a>&nbsp;
-        {{ end }}
-      {{ end }}
+      {{- if .Site.Menus.main }}
+        {{- range sort .Site.Menus.main }}
+          <a href="{{ .URL }}">{{ .Name }}</a>
+        {{- end }}
+      {{- end }}
     </div>
     <div class="nav-icon-element">
-      {{ if .Site.Menus.icon }}
-        {{ range sort .Site.Menus.icon }}
-          {{ if .Params.icon }}
-            <a href="{{ .URL }}"><img alt="{{ .Name }}" src="{{ .Params.icon }}" class="nav-icon"/></a>&nbsp;
-          {{ end }}
-        {{ end }}
-      {{ end }}
-    </div>    
+      {{- if .Site.Menus.icon }}
+        {{- range sort .Site.Menus.icon }}
+          {{- if .Params.icon }}
+            <a href="{{ .URL }}"><img alt="{{ .Name }}" src="{{ .Params.icon }}" class="nav-icon"/></a>
+          {{- end }}
+        {{- end }}
+      {{- end }}
+    </div>
   </nav>
 </header>
