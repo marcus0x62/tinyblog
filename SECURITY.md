@@ -1,12 +1,14 @@
 ## Reporting Security Issues
 
 I take security and privacy issues with my software seriously.  I appreciate any and all
-reports of security issues, and offer two primary ways to report an issue: (b
+reports of security issues, and offer two primary ways to report an issue:
 
- * Use Github's [Report a Vulnerability](https://github.com/marcus0x62/tinyblog/security/advisories/new)
- * Send me an OpenPGP-encrypted [email](mailto:marcusb@marcusb.org).  You can download my public key [here](https://keys.openpgp.org/search?q=marcusb%40marcusb.org)
+* [Report a Vulnerability](https://github.com/marcus0x62/tinyblog/security/advisories/new)
+via Github
+* Send me an OpenPGP-encrypted [email](mailto:marcusb@marcusb.org).  You can download my
+public key [here](https://keys.openpgp.org/search?q=marcusb%40marcusb.org)
 
-Both methods will end up in the same place; please use whichever you feel most comforatble
+Both methods will end up in the same place; please use whichever you feel most comfortable
 with.
 
 If you aren't sure if an issue you've identified is a "security issue", please err on the side
