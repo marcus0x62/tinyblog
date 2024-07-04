@@ -3,6 +3,7 @@ license = "MIT"
 licenselink = "https://marcusb.org/hacks/MIT-LICENSE.txt"
 description = "Hyper minimal blog theme for Hugo"
 homepage = "https://marcusb.org/hacks/tinyblog.html"
+demosite = "https://marcusb.org/"
 tags = ["blog", "minimal"]
 features = ["responsive"]
 min_version = "0.119.0"
