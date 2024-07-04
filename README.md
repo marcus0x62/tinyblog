@@ -1,7 +1,7 @@
 Tinyblog is a a hyper-minimalist theme for Hugo. Design goals for Tinyblog are:
 
 <p align="center">
-  <a href="https://raw.githubusercontent.com/marcus0x62/tinyblog/main/screenshot.png"><img src="https://raw.githubusercontent.com/marcus0x62/tinyblog/main/tn.png" /></a>
+  <a href="https://raw.githubusercontent.com/marcus0x62/tinyblog/main/images/screenshot.png"><img src="https://raw.githubusercontent.com/marcus0x62/tinyblog/main/images/tn.png" /></a>
 </p>
 
 * Accessible design by default - color contrast, encouraging alt-text for visual elements,
