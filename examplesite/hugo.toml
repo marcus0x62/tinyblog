@@ -13,6 +13,7 @@ markup.highlight.noClasses=false
 
 [params]
     author = "Marcus Butler"
+    #meLinks = ["https://example.com/@yourmastodonname"]
     licenseText = "Tinyblog is licensed under the MIT License"
     licenseLink = "https://marcusb.org/hacks/MIT-LICENSE.txt"
     #accentColor = "grey"
