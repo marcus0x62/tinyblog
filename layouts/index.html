@@ -1,7 +1,9 @@
 {{ partial "header" . }}
 <main>
-<div class="index-body">
+  <div class="index-body">
   {{ with .Content }} {{ . }} {{ end }}
+
+  <h2>Recent Posts</h2>
 
   {{ $paginator := .Paginate (where (where .Site.Pages "Type" "posts")
                                     "Title" "!=" "Posts") (.Site.Params.itemsPerPage | default (int 5))
