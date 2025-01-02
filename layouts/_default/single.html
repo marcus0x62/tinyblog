@@ -1,6 +1,6 @@
 {{- partial "header" . }}
 <main>
-  <div class="post-open">
+  <section class="post-open">
     <div class="post-open-title">
       <h2>{{ .Title }}</h2>
       {{- if .Date }}
@@ -18,12 +18,12 @@
         {{- .Params.quote }}
       {{- end }}
     </div>
-  </div>
-  <div class="post-body">{{ .Content }}</div>
-</main>
-{{- if .Params.comments }}
-  <comments>
+  </section>
+  <section class="post-body">{{ .Content }}</section>
+  {{- if .Params.comments }}
+  <section id="post-comments">
     {{ partial "comments" . }}
-  </comments>
-{{- end }}
-{{- partial "footer" . }}
+  </section>
+  {{- end }}
+</main>
+{{ partial "footer" . }}
