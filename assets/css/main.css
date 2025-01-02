@@ -90,7 +90,6 @@ a:hover {
 
 @media screen and (min-width: 650px) {
     .post-open {
-        background-color: #ff00000;
         display: grid;
         grid-template-columns: 2fr 1fr;
     }
