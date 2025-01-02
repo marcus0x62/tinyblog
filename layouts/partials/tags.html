@@ -1,6 +1,6 @@
-{{ if .Params.tags }}
-  Tags: 
-  {{ range .Params.tags }}
-    <a href="/tags/{{ . | urlize }}"><kbd class="tag">{{ . }}</kbd></a>
-  {{ end }}
-{{ end }}
+{{- if .Params.tags -}}
+  Tags:
+  {{- range .Params.tags -}}
+    <a class="taglink" href="/tags/{{ . | urlize }}"><kbd class="tag">{{ . }}</kbd></a>
+  {{- end -}}
+{{- end -}}

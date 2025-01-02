@@ -10,13 +10,13 @@
         {{- end }}</p>
       {{- end }}
     </div>
-    <div class="post-open-tags"> 
-      {{- partial "tags" . }}
+    <div class="post-open-tags">
+      {{- partial "tags" . -}}
     </div>
     <div class="post-open-quote">
-      {{- if .Params.quote }}
-        {{- .Params.quote }}
-      {{- end }}
+      {{- if .Params.quote -}}
+        {{- .Params.quote -}}
+      {{- end -}}
     </div>
   </section>
   <section class="post-body">{{ .Content }}</section>

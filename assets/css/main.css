@@ -105,6 +105,7 @@ a:hover {
         grid-column-end: 2;
         grid-row-start: 2;
         grid-row-end: 3;
+        padding: 2px;
     }
     .post-open-quote {
         padding-top: 50px;
@@ -120,6 +121,11 @@ a:hover {
     border-radius: 5px;
     color: var(--background-color);
     background-color: var(--accent-color);
+}
+
+.taglink {
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .paginator {
@@ -166,7 +172,7 @@ pre {
 .nav-text-element a {
    padding-right: 5px;
 }
-    
+
 .nav-icon-element {
     padding-top: 7px;
     padding-bottom: 5px;
