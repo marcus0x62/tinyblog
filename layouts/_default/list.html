@@ -1,13 +1,14 @@
 {{ partial "header" . }}
+<main>
+  <h3>
+    {{ with .Title }} {{ . }} {{ end }}
+    {{ if gt .Paginator.PageNumber 1 }} (page {{ .Paginator.PageNumber }}) {{ end }}
+  </h3>
 
-<div class="scrollwrap">
-  <main>
-    {{ range (.Paginator (.Site.Params.itemsPerPage | default (int 5)) ).Pages }}
-      {{ partial "list-item" . }}
-    {{ end }}
+  {{ range (.Paginator (.Site.Params.itemsPerPage | default (int 5)) ).Pages }}
+    {{ partial "list-item" . }}
+  {{ end }}
 
-    {{ partial "paginator" . }}
-  </main>
-
-  {{ partial "footer" . }}
-</div>
+  {{ partial "paginator" . }}
+</main>
+{{ partial "footer" . }}
