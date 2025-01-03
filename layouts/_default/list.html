@@ -1,11 +1,13 @@
 {{ partial "header" . }}
 
-<main>
+<div class="scrollwrap">
+  <main>
     {{ range (.Paginator (.Site.Params.itemsPerPage | default (int 5)) ).Pages }}
       {{ partial "list-item" . }}
     {{ end }}
 
     {{ partial "paginator" . }}
-</main>
+  </main>
 
-{{ partial "footer" . }}
+  {{ partial "footer" . }}
+</div>

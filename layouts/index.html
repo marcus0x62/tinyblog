@@ -1,19 +1,23 @@
 {{ partial "header" . }}
-<main>
-  <div class="index-body">
-  {{ with .Content }} {{ . }} {{ end }}
+<div class="scrollwrap">
+  <main>
+    {{ if eq .Paginator.PageNumber 1 }}
+      {{ with .Content }} {{ . }} {{ end }}
+    {{ end }}
 
-  <h2>Recent Posts</h2>
+    <h3>
+      Recent Posts
+      {{ if gt .Paginator.PageNumber 1 }} (page {{ .Paginator.PageNumber }}) {{ end }}
+    </h3>
 
-  {{ $paginator := .Paginate (where (where .Site.Pages "Type" "posts")
-                                    "Title" "!=" "Posts") (.Site.Params.itemsPerPage | default (int 5))
-  }}
+    {{ $paginator := .Paginate (where (where .Site.Pages "Type" "posts") "Title" "!=" "Posts")
+                               (.Site.Params.itemsPerPage | default (int 5)) }}
 
-  {{ range $paginator.Pages }}
-    {{ partial "list-item" . }}
-  {{ end }}
+    {{ range $paginator.Pages }}
+      {{ partial "list-item" . }}
+    {{ end }}
 
-  {{ partial "paginator" . }}
+    {{ partial "paginator" . }}
+  </main>
+  {{ partial "footer" . }}
 </div>
-</main>
-{{ partial "footer" . }}

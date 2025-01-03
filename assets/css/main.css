@@ -14,25 +14,29 @@ html, body {
 
 body {
     margin: 0px;
-    display: flex;
-    flex-direction: column;
     text-align: left;
     line-height: 1.4;
     font-family: sans-serif, Helvetica, Arial;
     font-size: 14px;
     color: var(--text-color);
     background-color: var(--background-color);
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
 }
 
 main {
     margin: auto;
-    padding: 50px;
-    flex: 1 0 auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    flex-grow: 1;
+}
+
+.scrollwrap {
+    overflow-y: scroll;
 }
 
 header {
-    display: flex;
-    flex-shrink: 0;
     justify-content: space-between;
     width: 100%;
 }
@@ -63,13 +67,8 @@ a:hover {
     font-style: italic;
 }
 
-.index-body {
-    transform: translateY(5vh);
-}
-
 .post-body {
     text-align: left;
-    transform: translateY(5vh);
 }
 
 .post-body table, td, th {
@@ -81,6 +80,7 @@ a:hover {
 .post-open {
     display: flex;
     flex-direction: column;
+    z-index: 1;
 }
 
 .post-open-quote {
@@ -155,10 +155,8 @@ pre {
     width: 100%;
     display: flex;
     top: 0;
-    position: fixed;
-    overflow: auto;
     height: auto;
-    z-index: 10;
+    z-index: 2;
 }
 
 .nav-text-element {
