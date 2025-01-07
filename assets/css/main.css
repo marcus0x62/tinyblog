@@ -32,10 +32,6 @@ main {
     flex-grow: 1;
 }
 
-.scrollwrap {
-    overflow-y: scroll;
-}
-
 header {
     justify-content: space-between;
     width: 100%;
@@ -154,9 +150,7 @@ pre {
     padding-top: 0px;
     width: 100%;
     display: flex;
-    top: 0;
     height: auto;
-    z-index: 2;
 }
 
 .nav-text-element {

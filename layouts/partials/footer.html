@@ -1,16 +1,20 @@
-        <footer>
-          <p class="copyright text-muted">
-            Made with ♥️ with <a href="https://gohugo.io">Hugo</a> and <a href="https://marcusb.org/hacks/tinyblog.html">Tinyblog</a><br/>
-            Copyright &copy; {{ .Site.Params.author }}<br/>
-            {{- if .Site.Params.licenseText }}
-              {{- if .Site.Params.licenseLink }}
-                <a href="{{ .Site.Params.licenseLink }}">{{ .Site.Params.licenseText }}</a>
-              {{- else }}
-                {{- .Site.Params.licenseText }}
-              {{- end }}
+      <footer>
+        <p class="copyright text-muted">
+          Made with ♥️ with <a href="https://gohugo.io">Hugo</a> and
+          <a href="https://marcusb.org/hacks/tinyblog.html">Tinyblog</a>
+        </p>
+        <p class="copyright text-muted">
+          Copyright &copy; {{ .Site.Params.author }}
+        </p>
+        <p class="copyright text-muted">
+          {{- if .Site.Params.licenseText }}
+            {{- if .Site.Params.licenseLink }}
+              <a href="{{ .Site.Params.licenseLink }}">{{ .Site.Params.licenseText }}</a>
+            {{- else }}
+              {{- .Site.Params.licenseText }}
             {{- end }}
-          </p>
-        </footer>
-      </div>
+          {{- end }}
+        </p>
+      </footer>
     </body>
 </html>
