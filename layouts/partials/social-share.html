@@ -1,0 +1,117 @@
+<!--
+  -- social-share.html partial for sharing posts via social networks
+  --
+  -- Logos are Copyright/trademark their respective owners and must be used within appropriate
+  -- applicable brand guidelines
+  -->
+<div class="social-share-container">
+  {{- if or (not .Site.Params.socialShare)
+         (or (in .Site.Params.socialShare "hackernews") (in .Site.Params.socialShare "lobsters")
+         (in .Site.Params.socialShare "mastodon") (in .Site.Params.socialShare "bluesky")
+         (in .Site.Params.socialShare "x") (in .Site.Params.socialShare "facebook")
+         (in .Site.Params.socialShare "linkedin")) -}}
+    <b>Share on...</b>
+  {{- end -}}
+
+  {{- if or (not .Site.Params.socialShare) (in .Site.Params.socialShare "hackernews") -}}
+    <!-- Hacker News -->
+    <a href="https://news.ycombinator.com/submitlink?u={{ .Permalink | safeURL }}&t={{ .Title }}"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="social-share-btn"
+       aria-label="Share on Hacker News">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+           xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+           viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"
+           fill="#ff7800">
+        <path fill="#f60" d="M79,14H21c-3.866,0-7,3.134-7,7v58c0,3.866,3.134,7,7,7h58c3.866,0,7-3.134,7-7V21 C86,17.134,82.866,14,79,14z M53.134,52.654V69.83h-5.267V52.714L35.12,29.494h5.925l5.685,11.132 c1.556,3.051,2.752,5.505,4.01,8.318h0.12c1.137-2.634,2.514-5.268,4.07-8.318l5.805-11.132h5.924L53.134,52.654z"/>
+      </svg>
+    </a>
+  {{- end -}}
+
+  {{- if or (not .Site.Params.socialShare) (in .Site.Params.socialShare "lobsters") -}}
+    <!-- Lobsters -->
+    <a href="https://lobste.rs/stories/new?url={{ .Permalink | safeURL }}&title={{ .Title }}"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="social-share-btn"
+       aria-label="Share on Lobste.rs">
+      <svg xmlns="http://www.w3.org/2000/svg" aria-label="Lobste.rs" role="img"
+           viewBox="0 0 512 512" width="24px" height="24px" fill="#000000">
+        <rect width="512" height="512" rx="15%" fill="#ac130c"/>
+        <path d="m420.955 428.064h-308.597v-23.49c9.85-.296 17.913-1.183 24.189-2.688 12.981-3.332 21.501-10.844 23.88-22.831 1.21-6.585 2.27-15.078 2.27-25.533v-199.802c-1.549-21.164-1.89-43.092-23.906-47.935-5.375-1.478-15.951-2.526-24.915-3.13v-21.005h170.627v21.004c-10.16.296-23.504 1.196-29.78 2.688-23.436 6.18-21.125 32.869-21.004 51.509v183.326c-.874 33.903 8.761 51.76 41.162 57.61 23.315-.202 44.078.403 64.947-3.373 21.596-4.435 39.616-18.895 48.378-36.62 4.784-9.85 10.55-33.018 10.55-45.018h22.24z" fill="#ffffff"/>
+      </svg>
+    </a>
+  {{- end -}}
+
+  {{- if or (not .Site.Params.socialShare) (in .Site.Params.socialShare "mastodon") -}}
+    <!-- Mastodon -->
+    <a href="https://mastodonshare.com/?text={{ .Title }}&url={{ .Permalink | safeURL }}"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="social-share-btn"
+       aria-label="Share on Mastodon">
+      <svg width="24px" height="24px" viewBox="-10 -5 1034 1034" xmlns="http://www.w3.org/2000/svg"
+           xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+        <path fill="#000000" d="M499 112q-93 1 -166 11q-81 11 -128 33l-14 8q-16 10 -32 25q-22 21 -38 47q-21 33 -32 73q-14 47 -14 103v37q0 77 1 119q3 113 18 188q19 95 62 154q50 67 134 89q109 29 210 24q46 -3 88 -12q30 -7 55 -17l19 -8l-4 -75l-22 6q-28 6 -57 10q-41 6 -78 4q-53 -1 -80 -7q-43 -8 -67 -30q-29 -25 -35 -72q-2 -14 -2 -29l25 6q31 6 65 10q48 7 93 9q42 2 92 -2q32 -2 88 -9t107 -30q49 -23 81.5 -54.5t38.5 -63.5q9 -45 13 -109q4 -46 5 -97v-41q0 -56 -14 -103q-11 -40 -32 -73q-16 -26 -38 -47q-15 -15 -32 -25q-12 -8 -14 -8q-46 -22 -127 -33q-74 -10 -166 -11h-3zM367 267q73 0 109 56l24 39l24 -39q36 -56 109 -56q63 0 101 43t38 117v239h-95v-232q0 -74 -61 -74q-69 0 -69 88v127h-94v-127q0 -88 -69 -88q-61 0 -61 74v232h-95v-239q0 -74 38 -117t101 -43z" />
+      </svg>
+    </a>
+  {{- end -}}
+
+  {{- if or (not .Site.Params.socialShare) (in .Site.Params.socialShare "bluesky") -}}
+    <!-- Bluesky -->
+    <a href="https://bsky.app/intent/compose?text={{ .Title }} {{ .Permalink | safeURL }}"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="social-share-btn"
+       aria-label="Share on Bluesky">
+      <svg fill="none" viewBox="0 0 64 57" width="24px" height="24px">
+        <path fill="#0085ff" d="M13.873 3.805C21.21 9.332 29.103 20.537 32 26.55v15.882c0-.338-.13.044-.41.867-1.512 4.456-7.418 21.847-20.923 7.944-7.111-7.32-3.819-14.64 9.125-16.85-7.405 1.264-15.73-.825-18.014-9.015C1.12 23.022 0 8.51 0 6.55 0-3.268 8.579-.182 13.873 3.805ZM50.127 3.805C42.79 9.332 34.897 20.537 32 26.55v15.882c0-.338.13.044.41.867 1.512 4.456 7.418 21.847 20.923 7.944 7.111-7.32 3.819-14.64-9.125-16.85 7.405 1.264 15.73-.825 18.014-9.015C62.88 23.022 64 8.51 64 6.55c0-9.818-8.578-6.732-13.873-2.745Z" />
+      </svg>
+    </a>
+  {{- end -}}
+
+  {{- if or (not .Site.Params.socialShare) (in .Site.Params.socialShare "x") -}}
+    <!-- Twitter/X -->
+    <a href="https://x.com/intent/tweet?text={{ .Title }}&url={{ .Permalink | safeURL }}"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="social-share-btn"
+       aria-label="Share on Twitter/X">
+      <svg width="24px" height="24px" viewBox="0 0 1200 1227" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="1200" height="1227" rx="10%" fill="black"/>
+        <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" fill="white"/>
+      </svg>
+    </a>
+  {{- end -}}
+
+  {{- if or (not .Site.Params.socialShare) (in .Site.Params.socialShare "facebook") -}}
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | safeURL }}"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="social-share-btn"
+       aria-label="Share on Facebook">
+      <svg width="24px" height="24px" viewBox="0 0 48 48" version="1.1"
+           xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="Color-" transform="translate(-200.000000, -160.000000)" fill="#4460A0">
+          <path d="M225.638355,208 L202.649232,208 C201.185673,208 200,206.813592 200,205.350603 L200,162.649211 C200,161.18585 201.185859,160 202.649232,160 L245.350955,160 C246.813955,160 248,161.18585 248,162.649211 L248,205.350603 C248,206.813778 246.813769,208 245.350955,208 L233.119305,208 L233.119305,189.411755 L239.358521,189.411755 L240.292755,182.167586 L233.119305,182.167586 L233.119305,177.542641 C233.119305,175.445287 233.701712,174.01601 236.70929,174.01601 L240.545311,174.014333 L240.545311,167.535091 C239.881886,167.446808 237.604784,167.24957 234.955552,167.24957 C229.424834,167.24957 225.638355,170.625526 225.638355,176.825209 L225.638355,182.167586 L219.383122,182.167586 L219.383122,189.411755 L225.638355,189.411755 L225.638355,208 L225.638355,208 Z" id="Facebook" />
+        </g>
+      </svg>
+    </a>
+  {{- end -}}
+
+  {{- if or (not .Site.Params.socialShare) (in .Site.Params.socialShare "linkedin") -}}
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ .Permalink | safeURL }}&title={{ .Title }}"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="social-share-btn"
+       aria-label="Share on LinkedIn">
+      <svg width="24px" height="24px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+           fill="none">
+        <path fill="#0A66C2" d="M12.225 12.225h-1.778V9.44c0-.664-.012-1.519-.925-1.519-.926 0-1.068.724-1.068 1.47v2.834H6.676V6.498h1.707v.783h.024c.348-.594.996-.95 1.684-.925 1.802 0 2.135 1.185 2.135 2.728l-.001 3.14zM4.67 5.715a1.037 1.037 0 01-1.032-1.031c0-.566.466-1.032 1.032-1.032.566 0 1.031.466 1.032 1.032 0 .566-.466 1.032-1.032 1.032zm.889 6.51h-1.78V6.498h1.78v5.727zM13.11 2H2.885A.88.88 0 002 2.866v10.268a.88.88 0 00.885.866h10.226a.882.882 0 00.889-.866V2.865a.88.88 0 00-.889-.864z"/>
+      </svg>
+    </a>
+  {{- end -}}
+</div>

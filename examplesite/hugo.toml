@@ -24,6 +24,8 @@ markup.highlight.noClasses=false
     #navbarBorderBottom = "1px"
     #navbarIconSize = "16px"
     #itemsPerPage = "5"
+    #socialShare = ["disabled"]
+    #socialShare = ["hackernews", "lobsters", "mastodon", "bluesky", "x", "facebook", "linkedin"]
 
 [[menu.main]]
     url = "/"
