@@ -2,7 +2,7 @@
 <main>
   <section class="post-open">
     <div class="post-open-title">
-      <h2>{{ .Title }}</h2>
+      <h1>{{ .Title }}</h1>
       {{- if .Date }}
         <p>Posted: {{ .Date | time.Format ":date_medium" }}
         {{- if ne .Lastmod .Date }}
