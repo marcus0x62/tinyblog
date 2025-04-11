@@ -6,7 +6,7 @@ homepage = "https://marcusb.org/hacks/tinyblog.html"
 demosite = "https://marcusb.org/"
 tags = ["blog", "minimal"]
 features = ["responsive"]
-min_version = "0.119.0"
+min_version = "0.134.0" # .Summary | plainify lossage
 
 [author]
   name = "Marcus Butler"

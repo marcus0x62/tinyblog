@@ -1,5 +1,15 @@
-{{- $main_css := resources.Get "css/main.css" | resources.ExecuteAsTemplate "main.css" . | resources.ToCSS | resources.Minify | resources.Fingerprint }}
-{{- $highlight_css := resources.Get "css/highlight.css" | resources.ExecuteAsTemplate "highlight.css" . | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+{{- $main_css := resources.Get "css/main.css"
+                 | resources.ExecuteAsTemplate "main.css" .
+                 | css.Sass
+                 | resources.Minify
+                 | resources.Fingerprint
+}}
+{{- $highlight_css := resources.Get "css/highlight.css"
+                      | resources.ExecuteAsTemplate "highlight.css" .
+                      | css.Sass
+                      | resources.Minify
+                      | resources.Fingerprint
+}}
 <link rel="stylesheet" href="{{ $main_css.RelPermalink }}" integrity="{{ $main_css.Data.Integrity }}">
 {{- if .Params.highlight }}
 <link rel="stylesheet" href="{{ $highlight_css.RelPermalink }}" integrity="{{ $highlight_css.Data.Integrity }}">

@@ -1,7 +1,7 @@
 <div class="list-item">
 <b><a href="{{ .RelPermalink }}">{{ .Title }}</a></b><br/>
 
-{{ .Summary }}
+{{ .Summary | plainify }}
 {{ if .Truncated }}
   <br/>
   <a href="{{ .RelPermalink }}">read more...</a>
