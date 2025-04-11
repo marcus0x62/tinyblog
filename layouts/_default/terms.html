@@ -1,9 +1,6 @@
 {{ partial "header" . }}
 <main>
-  {{ range (.Paginator (.Site.Params.itemsperpage | default (int 5)) ).Pages }}
-    {{ partial "list-item" . }}
-  {{ end }}
-
-  {{ partial "paginator" . }}
+  <h2>Tags used on this site</h2>
+  {{ partial "tag-cloud" . }}
 </main>
 {{ partial "footer" . }}

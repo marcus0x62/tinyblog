@@ -1,0 +1,53 @@
+<!--
+  -- tag-cloud.html -- Render a tag cloud visualization using a histogram to bucket tags of
+  -- differing magnitudes.
+  -->
+{{ $maxBuckets := 10 }}
+{{ $minTagCount := 1 }}
+{{ $maxTagCount := 1 }}
+
+{{- range $name, $taxonomy := .Site.Taxonomies.tags -}}
+  {{ $count := .Count }}
+  {{ if gt $count $maxTagCount }}
+    {{ $maxTagCount = $count }}
+  {{ end }}
+{{- end -}}
+
+{{ if ge $maxBuckets $maxTagCount }}
+  {{ $maxBuckets = $maxTagCount }}
+{{ end }}
+
+<div class="cloud">
+  <ul class="cloud" role="navigation" aria-label="Webdev word cloud">
+    {{- range $name, $taxonomy := .Site.Taxonomies.tags -}}
+      {{ $count := .Count }}
+
+      {{ $bucket := 1 }}
+      {{ if eq $minTagCount $maxTagCount }}
+        {{ $bucket = 1 }}
+      {{ else }}
+        {{ $range := sub $maxTagCount $minTagCount }}
+
+        {{/* Handle case where the range between least- and most-tagged is smaller than maxBuckets */}}
+        {{ if lt $range $maxBuckets }}
+          {{ $normalized := div (mul (sub $count $minTagCount) $maxBuckets) $range }}
+          {{ $bucket = add 1 $normalized }}
+          {{ if gt $bucket $maxBuckets }}
+            {{ $bucket = $maxBuckets }}
+          {{ end }}
+        {{ else }}
+          {{ $step := div $range $maxBuckets }}
+          {{ $bucket = add 1 (div (sub $count $minTagCount) $step) }}
+          {{ if gt $bucket $maxBuckets }}
+            {{ $bucket = $maxBuckets }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+
+      {{- with $.Site.GetPage (printf "/tags/%s" $name) -}}
+        <li><a data-weight="{{ $bucket }}" href="{{ .RelPermalink }}"
+               title="All pages with tag {{ $name }}">{{ $name }}</a></li>
+      {{- end -}}
+    {{- end -}}
+  </ul>
+</div>
