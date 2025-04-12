@@ -1,1 +1,4 @@
 TODO
+resources/**
+public/**
+.hugo_build.lock
