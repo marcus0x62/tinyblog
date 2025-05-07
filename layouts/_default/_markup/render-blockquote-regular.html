@@ -1,0 +1,12 @@
+<figure class="blockquote">
+  <blockquote {{ with .Attributes.cite }}cite="{{ . }}"{{ end }}>
+    <i>{{ .Text }}</i>
+  </blockquote>
+  {{- if and .Attributes.caption .Attributes.cite -}}
+    <figcaption class="blockquote-caption">
+      <a href="{{ .Attributes.cite }}">{{ .Attributes.caption | safeHTML }}</a>
+    </figcaption>
+  {{- else if .Attributes.caption -}}
+    <figcaption class="blockquote-caption">{{ .Attributes.caption | safeHTML }}</figcaption>
+  {{-  end -}}
+</figure>

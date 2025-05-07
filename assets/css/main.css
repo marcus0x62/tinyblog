@@ -145,6 +145,36 @@ a:hover {
     padding-top: 5px; /* Match tag padding to center Tags: label */
 }
 
+.alert-caution {
+    background-color: pink;
+    border-left: 3px solid red;
+    padding-left: 8px;
+}
+
+.alert-important {
+    background-color: lightblue;
+    border-left: 3px solid blue;
+    padding-left: 8px;
+}
+
+.alert-warning {
+    background-color: yellow;
+    border-left: 3px solid orange;
+    padding-left: 8px;
+}
+
+.blockquote {
+    border-left: 2px solid grey;
+    padding-left: 1ch;
+    color: #3c3c3c;
+    text-align: left;
+    padding-bottom: 0px;
+}
+
+.blockquote blockquote {
+    margin-left: 0px;
+}
+
 pre {
     padding: 5px;
     box-sizing: border-box;
