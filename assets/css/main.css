@@ -127,8 +127,22 @@ a:hover {
 }
 
 .list-item {
-    padding-bottom: 25px;
+    padding-bottom: 2.5em;
     text-align: left;
+}
+
+.list-item-date {
+    margin-bottom: 1em;
+}
+
+.list-item-tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1em;
+}
+
+.list-item-tags span {
+    padding-top: 5px; /* Match tag padding to center Tags: label */
 }
 
 pre {

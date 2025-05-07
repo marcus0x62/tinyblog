@@ -1,17 +1,25 @@
 <div class="list-item">
-<b><a href="{{ .RelPermalink }}">{{ .Title }}</a></b>
-{{- if .Date }}
-  {{ .Date | time.Format ":date_medium" }}
-  {{- if ne .Lastmod .Date }}
-    (<i>Updated: {{ .Lastmod | time.Format ":date_medium" }}</i>)
-  {{- end }}<br/>
-{{- end }}
-{{ .Summary | plainify }}
-{{ if .Truncated }}
-  <a href="{{ .RelPermalink }}">read more...</a>
-{{ end }}
-<br/>
-{{ partial "tags" . }}
-<br/><br/>
+  <div class="list-item-link"><b><a href="{{ .RelPermalink }}">{{ .Title }}</a></b></div>
 
+  {{- if .Date -}}
+    <div class="list-item-date">
+      <i>Published: {{- .Date | time.Format ":date_medium" -}}</i>
+      {{- if ne .Lastmod .Date -}}
+        (<i>Updated: {{- .Lastmod | time.Format ":date_medium" -}}</i>)
+      {{- end -}}
+    </div>
+  {{- end -}}
+
+  <div class="list-item-preview">
+    {{- .Summary | plainify -}}
+    {{- if .Truncated -}}
+      <a href="{{ .RelPermalink }}">read more...</a>
+    {{- end -}}
+  </div>
+
+  {{- if .Params.tags -}}
+    <div class="list-item-tags">
+      {{- partial "tags" . -}}
+    </div>
+  {{- end -}}
 </div>
