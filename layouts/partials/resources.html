@@ -1,12 +1,10 @@
 {{- $main_css := resources.Get "css/main.css"
                  | resources.ExecuteAsTemplate "main.css" .
-                 | css.Sass
                  | resources.Minify
                  | resources.Fingerprint
 }}
 {{- $highlight_css := resources.Get "css/highlight.css"
                       | resources.ExecuteAsTemplate "highlight.css" .
-                      | css.Sass
                       | resources.Minify
                       | resources.Fingerprint
 }}
