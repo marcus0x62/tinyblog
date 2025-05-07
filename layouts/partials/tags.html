@@ -1,5 +1,5 @@
 {{- if .Params.tags -}}
-  Tags:
+  <span>Tags:</span>
   {{- range .Params.tags -}}
     <a class="taglink" href="/tags/{{ . | urlize }}"><kbd class="tag">{{ . }}</kbd></a>
   {{- end -}}

@@ -1,15 +1,11 @@
 :root {
     --accent-color: {{ with .Site.Params.accentColor }} {{ . }} {{ else }} #565656 {{ end }};
     --text-color: {{ with .Site.Params.textColor }} {{ . }} {{ else }} black {{ end }};
-    --background-color: {{ with .Site.Params.backgroundColor }} {{ . }} {{ else }} #fefbea {{ end }};
+    --background-color: {{ with .Site.Params.backgroundColor }} {{ . }} {{ else }} #fffaee {{ end }};
     --navbar-border-top: {{ with .Site.Params.navbarBorderTop }} {{ . }} {{ else }} 2px {{ end }};
     --navbar-border-bottom: {{ with .Site.Params.navbarBorderBottom }} {{ . }} {{ else }} 1px {{ end }};
     --navbar-background-color: {{ with .Site.Params.navbarBackgroundColor }} {{ . }} {{ else }} #ffffea {{ end }};
     --navbar-icon-size: {{ with .Site.Params.navbarIconSize }} {{ . }} {{ else }} 16px {{ end }};
-}
-
-html, body {
-    height: 100%;
 }
 
 body {
@@ -25,16 +21,38 @@ body {
     flex-direction: column;
 }
 
-main {
-    margin: auto;
-    padding-left: 40px;
-    padding-right: 40px;
-    flex-grow: 1;
+header {
+    display: flex;
+    flex: 0 1 content;
+    width: 100vw;
 }
 
-header {
-    justify-content: space-between;
-    width: 100%;
+main {
+    margin: auto;
+    max-width: 40em;
+    display: flex;
+    flex: 1 0 max-content;
+    flex-direction: column;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+footer {
+    margin: auto;
+    max-width: 100vw;
+    border-bottom: var(--border-width) solid var(--accent-color);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+h1 {
+    margin-block: 0.67em;
+    font-size: 2em;
+}
+
+h2, h3, h4, h5, h6 {
+    padding-left: 3px;
+    border-left: 4px solid black;
 }
 
 img {
@@ -115,6 +133,7 @@ a:hover {
     border-radius: 5px;
     color: var(--background-color);
     background-color: var(--accent-color);
+    white-space: nowrap;
 }
 
 .taglink {
@@ -190,40 +209,54 @@ pre {
     background-color: var(--navbar-background-color);
     border-top: var(--navbar-border-top) solid var(--accent-color);
     border-bottom: var(--navbar-border-bottom) solid var(--accent-color);
-    padding-top: 0px;
-    width: 100%;
+    width: 100vw;
     display: flex;
-    height: auto;
+    flex: 1 1 content;
+    flex-direction: row;
+    /*
+     * Don't wrap the navbar, or else the filler container will grow
+     * and throw the icons to a new line.
+     */
+    flex-wrap: nowrap;
+    padding: 0.5ch 1.5rem 0.5ch 1.5rem;
 }
 
-.nav-text-element {
-    flex:1 1 0px;
-    padding-top: 7px;
-    padding-bottom: 5px;
-    padding-left: 50px;
+.navbar-text {
+    display: flex;
+    flex: 0 1 content;
+    flex-wrap: wrap;
+    margin: auto 0px auto 0px;
+    padding: 0px;
+    list-style-type: none;
 }
 
-.nav-text-element a {
-   padding-right: 5px;
+.navbar-text li {
+    padding-right: 1em;
+    white-space: nowrap;
 }
 
-.nav-icon-element {
-    padding-top: 7px;
-    padding-bottom: 5px;
-    padding-right: 50px;
+.navbar-filler {
+    display: flex;
+    flex: 1 0 0px;
+    max-width: 100vw;
 }
 
-.nav-icon-element a {
-    padding-left: 5px;
+.navbar-icon {
+    display: flex;
+    flex: 0 1 content;
+    padding: 0px;
+    margin: auto 0px auto auto;
 }
 
-img.nav-icon {
+.navbar-icon img {
     width: var(--navbar-icon-size);
     height: var(--navbar-icon-size);
+    min-width: var(--navbar-icon-size);
+    min-height: var(--navbar-icon-size);
 }
 
 .copyright {
-    margin: 5px 0;
+    margin: 0;
     text-align: center;
     color: var(--accent-color);
 }
@@ -237,17 +270,13 @@ img.nav-icon {
     margin-top: 50px;
 }
 
-footer {
-    border-bottom: var(--border-width) solid var(--accent-color);
-}
-
 /* tag cloud stuff */
 
 div.cloud {
     display: flex;
     margin-left: auto;
     margin-right: auto;
-    width: 80vw;
+    max-width: 80vw;
 }
 
 ul.cloud {
