@@ -8,12 +8,20 @@
     --navbar-icon-size: {{ with .Site.Params.navbarIconSize }} {{ . }} {{ else }} 16px {{ end }};
 }
 
+@font-face {
+    font-family: SerifStack;
+    src: local('Rockwell Nova'), local('Rockwell'), local('Roboto Slab'), local('DejaVu Serif'), local('Sitka Small');
+}
+
+@font-face {
+    font-family: SansSerifStack;
+    src: local('Avenir'), local('Montserrat'), local('URW Gothic'), local('Noto Sans'), local('Corbel'), local('source-sans-pro');
+}
+
 body {
     margin: 0px;
-    text-align: left;
-    line-height: 1.4;
-    font-family: sans-serif, Helvetica, Arial;
-    font-size: 14px;
+    font: 1rem/1.5 SerifStack, serif;
+    font-weight: normal;
     color: var(--text-color);
     background-color: var(--background-color);
     display: flex;
@@ -29,7 +37,7 @@ header {
 
 main {
     margin: auto;
-    max-width: 40em;
+    max-width: 70ch;
     display: flex;
     flex: 1 0 max-content;
     flex-direction: column;
@@ -45,14 +53,32 @@ footer {
     padding-right: 1.5rem;
 }
 
-h1 {
-    margin-block: 0.67em;
-    font-size: 2em;
+h1, h2, h3, h4, blockquote {
+    font-family: SansSerifStack, sans-serif;
+    font-weight: normal;
 }
 
-h2, h3, h4, h5, h6 {
-    padding-left: 3px;
-    border-left: 4px solid black;
+h1 {
+    margin-block: 0.67em;
+    font-size: 2rem;
+}
+
+h2 {
+    padding-left: 0.33em;
+    border-left: 0.125ch solid black;
+    font-size: 1.6rem;
+}
+
+h3 {
+    padding-left: 0.33em;
+    border-left: 0.25ch double black;
+    font-size: 1.4rem;
+}
+
+h4 {
+    padding-left: 0.33em;
+    border-left: 0.25ch double black;
+    font-size: 1.25rem;
 }
 
 img {
@@ -206,6 +232,7 @@ pre {
 }
 
 .navbar {
+    font-family: SansSerifStack, sans-serif;
     background-color: var(--navbar-background-color);
     border-top: var(--navbar-border-top) solid var(--accent-color);
     border-bottom: var(--navbar-border-bottom) solid var(--accent-color);
