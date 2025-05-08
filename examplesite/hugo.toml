@@ -1,7 +1,14 @@
 baseURL = 'https://tinyblogexample.marcusb.org/'
 languageCode = 'en-us'
 title = 'Tinyblog Demonstration Site'
-markup.highlight.noClasses=false
+enableEmoji = true
+[markup]
+  [markup.highlight]
+    noClasses=false
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
 
 [module]
 [[module.imports]]
@@ -33,8 +40,8 @@ markup.highlight.noClasses=false
     weight = 1
 
 [[menu.main]]
-    url = "/tinyblog.html"
-    name = "Tinyblog"
+    url = "/tinyblog/"
+    name = "Tiny Blog"
     weight = 2
 
 [[menu.main]]
@@ -44,12 +51,10 @@ markup.highlight.noClasses=false
 
 [[menu.main]]
     url = "/tinyimages.html"
-    name = "Tinyimages"
+    name = "Tiny Images"
     weight = 4
 
-[[menu.icon]]
+[[menu.main]]
     url = "/contact.html"
-    name = "contact"
-    [menu.icon.params]
-        icon = "/images/envelope.svg"
-    weight = 1
+    name = "Contact"
+    weight = 5
