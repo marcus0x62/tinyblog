@@ -127,6 +127,15 @@ a:hover {
     font-style: italic;
 }
 
+.post-open-tags {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.post-open-tags span {
+    padding-top: 5px; /* Match tag padding to center Tags: label */
+}
+
 @media screen and (min-width: 650px) {
     .post-open {
         display: grid;
