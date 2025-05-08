@@ -10,10 +10,8 @@
 
 body {
     margin: 0px;
-    text-align: left;
-    line-height: 1.4;
-    font-family: sans-serif, Helvetica, Arial;
-    font-size: 14px;
+    font: 1rem/1.5 Noto Serif, Charter, Bitstream Charter, Sitka Text, Cambria, serif;
+    font-weight: normal;
     color: var(--text-color);
     background-color: var(--background-color);
     display: flex;
@@ -29,12 +27,18 @@ header {
 
 main {
     margin: auto;
-    max-width: 40em;
+    max-width: 66ch;
     display: flex;
     flex: 1 0 max-content;
     flex-direction: column;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+}
+
+@media screen and (min-width: 60rem) {
+    main {
+        max-width: 95ch;
+    }
 }
 
 footer {
@@ -45,14 +49,39 @@ footer {
     padding-right: 1.5rem;
 }
 
+h1, h2, h3, h4, blockquote {
+    font-family: Avenir, Montserrat, URW Gothic, Noto Sans, Corbel, source-sans-pro, sans-serif;
+    font-weight: normal;
+}
+
 h1 {
     margin-block: 0.67em;
-    font-size: 2em;
+    font-size: 2rem;
 }
 
 h2, h3, h4, h5, h6 {
-    padding-left: 3px;
-    border-left: 4px solid black;
+    padding-left: 0.33em;
+    border-left: 0.065rem solid black;
+}
+
+h2 {
+    font-size: 1.6rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+h5 {
+    font-size: 1.125rem;
+}
+
+h6 {
+    font-size: 1.0635rem;
 }
 
 img {
@@ -99,6 +128,15 @@ a:hover {
 .post-open-quote {
     padding-top: 15px;
     font-style: italic;
+}
+
+.post-open-tags {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.post-open-tags span {
+    padding-top: 5px; /* Match tag padding to center Tags: label */
 }
 
 @media screen and (min-width: 650px) {
@@ -206,6 +244,7 @@ pre {
 }
 
 .navbar {
+    font-family: Avenir, Montserrat, URW Gothic, Noto Sans, Corbel, source-sans-pro, sans-serif;
     background-color: var(--navbar-background-color);
     border-top: var(--navbar-border-top) solid var(--accent-color);
     border-bottom: var(--navbar-border-bottom) solid var(--accent-color);
